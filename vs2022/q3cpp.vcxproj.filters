@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\src\tools\lcc\cpp\cpp.c"><Filter>tools\lcc\cpp</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\cpp\lex.c"><Filter>tools\lcc\cpp</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\cpp\nlist.c"><Filter>tools\lcc\cpp</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\cpp\tokens.c"><Filter>tools\lcc\cpp</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\cpp\macro.c"><Filter>tools\lcc\cpp</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\cpp\eval.c"><Filter>tools\lcc\cpp</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\cpp\include.c"><Filter>tools\lcc\cpp</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\cpp\hideset.c"><Filter>tools\lcc\cpp</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\cpp\getopt.c"><Filter>tools\lcc\cpp</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\cpp\unix.c"><Filter>tools\lcc\cpp</Filter></ClCompile>
+    <ClInclude Include="..\src\tools\lcc\cpp\cpp.h"><Filter>tools\lcc\cpp</Filter></ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="tools"><UniqueIdentifier>{E95B8A61-478F-5D0C-98C1-7EBAEE5B7EDF}</UniqueIdentifier></Filter>
+    <Filter Include="tools\lcc"><UniqueIdentifier>{DEF94B7C-D316-548E-8834-AFC4CEC66D35}</UniqueIdentifier></Filter>
+    <Filter Include="tools\lcc\cpp"><UniqueIdentifier>{E7C796D8-642B-5017-A395-4AF8FF64381F}</UniqueIdentifier></Filter>
+  </ItemGroup>
+</Project>

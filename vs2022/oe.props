@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Settings shared by every oe-client project. Everything is built into build\ :
+     build\oe.exe, build\SDL2.dll, build\oe\ and build\oe2\ (game modules: vm\oegame.qvm and
+     oegamex86_64.dll; the user's .bar/.mod go there too), build\tools\ (QVM compiler). -->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="UserMacros">
+    <OeRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\'))</OeRoot>
+    <OeOutDir>$(OeRoot)build\</OeOutDir>
+    <SDL2Dir>$(OeRoot)libs\SDL2\</SDL2Dir>
+    <SDL2LibDir>$(SDL2Dir)lib\x64\</SDL2LibDir>
+  </PropertyGroup>
+  <PropertyGroup>
+    <IntDir>$(OeRoot)build\obj\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <CompileAs>CompileAsC</CompileAs>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <ConformanceMode>false</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <!-- C_ONLY: no x86 inline assembly (MSVC has none for x64) -->
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;C_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(OeRoot)src\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <!-- old id/third-party code: silence the noisy, harmless warnings -->
+      <DisableSpecificWarnings>4018;4024;4028;4047;4057;4090;4100;4113;4133;4146;4152;4200;4244;4245;4267;4305;4306;4311;4312;4389;4456;4457;4459;4701;4703;4706;4996;5105;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <!-- static CRT: the exe/dlls run without installing the VC++ redistributable -->
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <BasicRuntimeChecks>StackFrameRuntimeCheck</BasicRuntimeChecks>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <StringPooling>true</StringPooling>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+</Project>

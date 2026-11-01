@@ -1,0 +1,72 @@
+// The constants of the menu files, with Tremulous' values (its ui/menudef.h),
+// for the menus of oe.exe started without fs_game (base/ui/main.menu).
+
+#ifndef MENUDEF_H
+#define MENUDEF_H
+
+enum
+{
+  ITEM_TYPE_ANY = -1,     // invalid type
+  ITEM_TYPE_NONE,         // no specified type
+  ITEM_TYPE_TEXT,         // simple text (with "cvar": the cvar's value after it)
+  ITEM_TYPE_BUTTON,       // a button: runs its action
+  ITEM_TYPE_RADIOBUTTON,
+  ITEM_TYPE_CHECKBOX,
+  ITEM_TYPE_EDITFIELD,
+  ITEM_TYPE_SAYFIELD,
+  ITEM_TYPE_CYCLE,
+  ITEM_TYPE_LISTBOX,
+  ITEM_TYPE_COMBOBOX,
+  ITEM_TYPE_MODEL,
+  ITEM_TYPE_OWNERDRAW,
+  ITEM_TYPE_NUMERICFIELD,
+  ITEM_TYPE_SLIDER,
+  ITEM_TYPE_YESNO,
+  ITEM_TYPE_MULTI,
+  ITEM_TYPE_BIND
+};
+
+enum
+{
+  ALIGN_LEFT,
+  ALIGN_CENTER,
+  ALIGN_RIGHT,
+  ASPECT_NONE,
+  ALIGN_NONE
+};
+
+enum
+{
+  ITEM_TEXTSTYLE_NORMAL,
+  ITEM_TEXTSTYLE_BLINK,
+  ITEM_TEXTSTYLE_PULSE,
+  ITEM_TEXTSTYLE_SHADOWED,
+  ITEM_TEXTSTYLE_OUTLINED,
+  ITEM_TEXTSTYLE_OUTLINESHADOWED,
+  ITEM_TEXTSTYLE_SHADOWEDMORE,
+  ITEM_TEXTSTYLE_NEON
+};
+
+enum
+{
+  WINDOW_BORDER_NONE,
+  WINDOW_BORDER_FULL,
+  WINDOW_BORDER_HORZ,
+  WINDOW_BORDER_VERT,
+  WINDOW_BORDER_KCGRADIENT
+};
+
+enum
+{
+  WINDOW_STYLE_EMPTY,
+  WINDOW_STYLE_FILLED,
+  WINDOW_STYLE_GRADIENT,
+  WINDOW_STYLE_SHADER,
+  WINDOW_STYLE_TEAMCOLOR,
+  WINDOW_STYLE_CINEMATIC
+};
+
+#define MENU_TRUE   1
+#define MENU_FALSE  0
+
+#endif

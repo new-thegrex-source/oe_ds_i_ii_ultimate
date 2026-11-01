@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\src\tools\lcc\src\alloc.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\bind.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\bytecode.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\dag.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\decl.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\enode.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\error.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\event.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\expr.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\gen.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\init.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\inits.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\input.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\lex.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\list.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\main.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\null.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\output.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\prof.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\profio.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\simp.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\stmt.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\string.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\sym.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\symbolic.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\trace.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\tree.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\src\types.c"><Filter>tools\lcc\src</Filter></ClCompile>
+    <ClInclude Include="..\src\tools\lcc\src\c.h"><Filter>tools\lcc\src</Filter></ClInclude>
+    <ClInclude Include="..\src\tools\lcc\src\config.h"><Filter>tools\lcc\src</Filter></ClInclude>
+    <ClInclude Include="..\src\tools\lcc\src\token.h"><Filter>tools\lcc\src</Filter></ClInclude>
+    <CustomBuild Include="..\src\tools\lcc\src\dagcheck.md"><Filter>tools\lcc\src</Filter></CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="tools"><UniqueIdentifier>{E95B8A61-478F-5D0C-98C1-7EBAEE5B7EDF}</UniqueIdentifier></Filter>
+    <Filter Include="tools\lcc"><UniqueIdentifier>{DEF94B7C-D316-548E-8834-AFC4CEC66D35}</UniqueIdentifier></Filter>
+    <Filter Include="tools\lcc\src"><UniqueIdentifier>{E06B6CEE-D9E9-5BFC-B7CB-6955B911C3CC}</UniqueIdentifier></Filter>
+  </ItemGroup>
+</Project>

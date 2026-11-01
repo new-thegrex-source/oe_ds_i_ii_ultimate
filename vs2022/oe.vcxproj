@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{92C4F020-CB5D-57C1-B866-899F588B9EEB}</ProjectGuid>
+    <RootNamespace>oe</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="oe.props" />
+  </ImportGroup>
+  <PropertyGroup>
+    <OutDir>$(OeOutDir)</OutDir>
+    <LocalDebuggerCommandArguments>+set fs_game oe +set vm_oegame 0</LocalDebuggerCommandArguments>
+    <LocalDebuggerWorkingDirectory>$(OeOutDir)</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>USE_LOCAL_HEADERS;USE_ICON;NO_VM_COMPILED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SDL2Dir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+      <AdditionalDependencies>$(SDL2LibDir)SDL2.lib;opengl32.lib;winmm.lib;ws2_32.lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(OeRoot).;$(OeRoot)src\sys;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /y /d "$(SDL2LibDir)SDL2.dll" "$(OutDir)"</Command>
+      <Message>Copying SDL2.dll</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\client\cl_console.c" />
+    <ClCompile Include="..\src\client\cl_keys.c" />
+    <ClCompile Include="..\src\client\cl_main.c" />
+    <ClCompile Include="..\src\client\cl_scrn.c" />
+    <ClCompile Include="..\src\client\cl_hw.c" />
+    <ClCompile Include="..\src\client\cl_dsmap.c" />
+    <ClCompile Include="..\src\client\cl_ui.c" />
+    <ClCompile Include="..\src\qcommon\cmd.c" />
+    <ClCompile Include="..\src\qcommon\common.c" />
+    <ClCompile Include="..\src\qcommon\cvar.c" />
+    <ClCompile Include="..\src\qcommon\files.c" />
+    <ClCompile Include="..\src\qcommon\ioapi.c" />
+    <ClCompile Include="..\src\qcommon\md4.c" />
+    <ClCompile Include="..\src\qcommon\md5.c" />
+    <ClCompile Include="..\src\qcommon\puff.c" />
+    <ClCompile Include="..\src\qcommon\q_math.c" />
+    <ClCompile Include="..\src\qcommon\q_shared.c" />
+    <ClCompile Include="..\src\qcommon\unzip.c" />
+    <ClCompile Include="..\src\qcommon\vm.c" />
+    <ClCompile Include="..\src\qcommon\vm_interpreted.c" />
+    <ClCompile Include="..\src\renderer\tr_animation.c" />
+    <ClCompile Include="..\src\renderer\tr_backend.c" />
+    <ClCompile Include="..\src\renderer\tr_bsp.c" />
+    <ClCompile Include="..\src\renderer\tr_cmds.c" />
+    <ClCompile Include="..\src\renderer\tr_curve.c" />
+    <ClCompile Include="..\src\renderer\tr_flares.c" />
+    <ClCompile Include="..\src\renderer\tr_font.c" />
+    <ClCompile Include="..\src\renderer\tr_image.c" />
+    <ClCompile Include="..\src\renderer\tr_image_bmp.c" />
+    <ClCompile Include="..\src\renderer\tr_image_jpg.c" />
+    <ClCompile Include="..\src\renderer\tr_image_pcx.c" />
+    <ClCompile Include="..\src\renderer\tr_image_png.c" />
+    <ClCompile Include="..\src\renderer\tr_image_tga.c" />
+    <ClCompile Include="..\src\renderer\tr_init.c" />
+    <ClCompile Include="..\src\renderer\tr_light.c" />
+    <ClCompile Include="..\src\renderer\tr_main.c" />
+    <ClCompile Include="..\src\renderer\tr_marks.c" />
+    <ClCompile Include="..\src\renderer\tr_mesh.c" />
+    <ClCompile Include="..\src\renderer\tr_model.c" />
+    <ClCompile Include="..\src\renderer\tr_noise.c" />
+    <ClCompile Include="..\src\renderer\tr_scene.c" />
+    <ClCompile Include="..\src\renderer\tr_shade.c" />
+    <ClCompile Include="..\src\renderer\tr_shade_calc.c" />
+    <ClCompile Include="..\src\renderer\tr_shader.c" />
+    <ClCompile Include="..\src\renderer\tr_shadows.c" />
+    <ClCompile Include="..\src\renderer\tr_sky.c" />
+    <ClCompile Include="..\src\renderer\tr_surface.c" />
+    <ClCompile Include="..\src\renderer\tr_world.c" />
+    <ClCompile Include="..\src\sdl\sdl_gamma.c" />
+    <ClCompile Include="..\src\sdl\sdl_glimp.c" />
+    <ClCompile Include="..\src\sdl\sdl_input.c" />
+    <ClCompile Include="..\src\oe\oe_audio.c" />
+    <ClCompile Include="..\src\oe\oe_bar.c" />
+    <ClCompile Include="..\src\oe\oe_res.c" />
+    <ClCompile Include="..\src\oe\oe_files.c" />
+    <ClCompile Include="..\src\oe\oe_host.c" />
+    <ClCompile Include="..\src\oe\oe_pmd.c" />
+    <ClCompile Include="..\src\oe\oe_qcelp.c" />
+    <ClCompile Include="..\src\sys\con_passive.c" />
+    <ClCompile Include="..\src\sys\con_log.c" />
+    <ClCompile Include="..\src\sys\sys_main.c" />
+    <ClCompile Include="..\src\sys\sys_win32.c" />
+    <ClCompile Include="..\src\jpeg-6b\jcapimin.c" />
+    <ClCompile Include="..\src\jpeg-6b\jcapistd.c" />
+    <ClCompile Include="..\src\jpeg-6b\jccoefct.c" />
+    <ClCompile Include="..\src\jpeg-6b\jccolor.c" />
+    <ClCompile Include="..\src\jpeg-6b\jcdctmgr.c" />
+    <ClCompile Include="..\src\jpeg-6b\jchuff.c" />
+    <ClCompile Include="..\src\jpeg-6b\jcinit.c" />
+    <ClCompile Include="..\src\jpeg-6b\jcmainct.c" />
+    <ClCompile Include="..\src\jpeg-6b\jcmarker.c" />
+    <ClCompile Include="..\src\jpeg-6b\jcmaster.c" />
+    <ClCompile Include="..\src\jpeg-6b\jcomapi.c" />
+    <ClCompile Include="..\src\jpeg-6b\jcparam.c" />
+    <ClCompile Include="..\src\jpeg-6b\jcphuff.c" />
+    <ClCompile Include="..\src\jpeg-6b\jcprepct.c" />
+    <ClCompile Include="..\src\jpeg-6b\jcsample.c" />
+    <ClCompile Include="..\src\jpeg-6b\jdapimin.c" />
+    <ClCompile Include="..\src\jpeg-6b\jdapistd.c" />
+    <ClCompile Include="..\src\jpeg-6b\jdatasrc.c" />
+    <ClCompile Include="..\src\jpeg-6b\jdcoefct.c" />
+    <ClCompile Include="..\src\jpeg-6b\jdcolor.c" />
+    <ClCompile Include="..\src\jpeg-6b\jddctmgr.c" />
+    <ClCompile Include="..\src\jpeg-6b\jdhuff.c" />
+    <ClCompile Include="..\src\jpeg-6b\jdinput.c" />
+    <ClCompile Include="..\src\jpeg-6b\jdmainct.c" />
+    <ClCompile Include="..\src\jpeg-6b\jdmarker.c" />
+    <ClCompile Include="..\src\jpeg-6b\jdmaster.c" />
+    <ClCompile Include="..\src\jpeg-6b\jdpostct.c" />
+    <ClCompile Include="..\src\jpeg-6b\jdsample.c" />
+    <ClCompile Include="..\src\jpeg-6b\jdtrans.c" />
+    <ClCompile Include="..\src\jpeg-6b\jerror.c" />
+    <ClCompile Include="..\src\jpeg-6b\jfdctflt.c" />
+    <ClCompile Include="..\src\jpeg-6b\jidctflt.c" />
+    <ClCompile Include="..\src\jpeg-6b\jmemmgr.c" />
+    <ClCompile Include="..\src\jpeg-6b\jmemnobs.c" />
+    <ClCompile Include="..\src\jpeg-6b\jutils.c" />
+    <ClCompile Include="..\src\zlib\adler32.c" />
+    <ClCompile Include="..\src\zlib\crc32.c" />
+    <ClCompile Include="..\src\zlib\inffast.c" />
+    <ClCompile Include="..\src\zlib\inflate.c" />
+    <ClCompile Include="..\src\zlib\inftrees.c" />
+    <ClCompile Include="..\src\zlib\zutil.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\client\cl_font.h" />
+    <ClInclude Include="..\src\client\client.h" />
+    <ClInclude Include="..\src\client\keycodes.h" />
+    <ClInclude Include="..\src\client\keys.h" />
+    <ClInclude Include="..\src\qcommon\ioapi.h" />
+    <ClInclude Include="..\src\qcommon\puff.h" />
+    <ClInclude Include="..\src\qcommon\q_platform.h" />
+    <ClInclude Include="..\src\qcommon\q_shared.h" />
+    <ClInclude Include="..\src\qcommon\qcommon.h" />
+    <ClInclude Include="..\src\qcommon\qfiles.h" />
+    <ClInclude Include="..\src\qcommon\surfaceflags.h" />
+    <ClInclude Include="..\src\qcommon\unzip.h" />
+    <ClInclude Include="..\src\qcommon\vm_local.h" />
+    <ClInclude Include="..\src\renderer\qgl.h" />
+    <ClInclude Include="..\src\renderer\tr_local.h" />
+    <ClInclude Include="..\src\renderer\tr_public.h" />
+    <ClInclude Include="..\src\renderer\tr_types.h" />
+    <ClInclude Include="..\src\sys\sys_loadlib.h" />
+    <ClInclude Include="..\src\sys\sys_local.h" />
+    <ClInclude Include="..\src\sys\win_resource.h" />
+    <ClInclude Include="..\src\sdl\sdl_icon.h" />
+    <ClInclude Include="..\src\oe\oe_local.h" />
+    <ClInclude Include="..\src\oe\oe_qcelp.h" />
+    <ClInclude Include="..\src\cgame_common\brew_shim.h" />
+    <ClInclude Include="..\src\cgame_common\moddata.h" />
+    <ClInclude Include="..\src\cgame_common\oe_public.h" />
+    <ClInclude Include="..\src\cgame_common\oe_vm.h" />
+    <ClInclude Include="..\src\cgame_common\platform.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\src\sys\win_resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="oegame_oe.vcxproj">
+      <Project>{433AC998-D22C-560C-ADDD-87C1F08E8BD5}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="oegame_oe2.vcxproj">
+      <Project>{99DCBD76-A0DE-5302-AA4F-163E286BDDF6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <ProjectReference Include="qvm.vcxproj">
+      <Project>{3BF3B972-836B-537D-A4E4-E574BDBE3D97}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\src\tools\asm\q3asm.c"><Filter>tools\asm</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\asm\cmdlib.c"><Filter>tools\asm</Filter></ClCompile>
+    <ClInclude Include="..\src\tools\asm\cmdlib.h"><Filter>tools\asm</Filter></ClInclude>
+    <ClInclude Include="..\src\tools\asm\mathlib.h"><Filter>tools\asm</Filter></ClInclude>
+    <ClInclude Include="..\src\tools\asm\opstrings.h"><Filter>tools\asm</Filter></ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="tools"><UniqueIdentifier>{E95B8A61-478F-5D0C-98C1-7EBAEE5B7EDF}</UniqueIdentifier></Filter>
+    <Filter Include="tools\asm"><UniqueIdentifier>{0217E721-3B88-55D9-B9B9-A0C0E851B3BE}</UniqueIdentifier></Filter>
+  </ItemGroup>
+</Project>

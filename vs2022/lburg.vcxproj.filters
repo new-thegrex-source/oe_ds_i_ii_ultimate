@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\src\tools\lcc\lburg\lburg.c"><Filter>tools\lcc\lburg</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\lburg\gram.c"><Filter>tools\lcc\lburg</Filter></ClCompile>
+    <ClInclude Include="..\src\tools\lcc\lburg\lburg.h"><Filter>tools\lcc\lburg</Filter></ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="tools"><UniqueIdentifier>{E95B8A61-478F-5D0C-98C1-7EBAEE5B7EDF}</UniqueIdentifier></Filter>
+    <Filter Include="tools\lcc"><UniqueIdentifier>{DEF94B7C-D316-548E-8834-AFC4CEC66D35}</UniqueIdentifier></Filter>
+    <Filter Include="tools\lcc\lburg"><UniqueIdentifier>{47367C85-73EA-54AB-8564-ED8B4D88BD0A}</UniqueIdentifier></Filter>
+  </ItemGroup>
+</Project>

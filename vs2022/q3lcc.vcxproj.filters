@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\src\tools\lcc\etc\lcc.c"><Filter>tools\lcc\etc</Filter></ClCompile>
+    <ClCompile Include="..\src\tools\lcc\etc\bytecode.c"><Filter>tools\lcc\etc</Filter></ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="tools"><UniqueIdentifier>{E95B8A61-478F-5D0C-98C1-7EBAEE5B7EDF}</UniqueIdentifier></Filter>
+    <Filter Include="tools\lcc"><UniqueIdentifier>{DEF94B7C-D316-548E-8834-AFC4CEC66D35}</UniqueIdentifier></Filter>
+    <Filter Include="tools\lcc\etc"><UniqueIdentifier>{F60FA8AA-978E-5F3E-AD0A-4ECBC1057681}</UniqueIdentifier></Filter>
+  </ItemGroup>
+</Project>

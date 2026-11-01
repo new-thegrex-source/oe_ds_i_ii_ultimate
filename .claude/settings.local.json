@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($vs=\"C:\\\\Program Files\\\\Microsoft Visual Studio\\\\2022\\\\Community\\\\MSBuild\\\\Current\\\\Bin\\\\MSBuild.exe\"; & $vs vs2022\\\\q3cpp.vcxproj /p:Configuration=Release /p:Platform=x64 /v:m /nologo)",
+      "PowerShell($vs=\"C:\\\\Program Files\\\\Microsoft Visual Studio\\\\2022\\\\Community\\\\MSBuild\\\\Current\\\\Bin\\\\MSBuild.exe\"; & $vs vs2022\\\\qvm.vcxproj /p:Configuration=Release /p:Platform=x64 /v:m /nologo; Get-ChildItem build\\\\oe\\\\vm,build\\\\oe2\\\\vm)",
+      "PowerShell(Get-Content build\\\\obj\\\\qvm\\\\oe\\\\oe_game.err; Push-Location src\\\\cgame_oe; & ..\\\\..\\\\build\\\\tools\\\\q3lcc.exe -v -Wf-unsigned_char=1 -DQ3_VM -Dinline= -I../cgame_common/vmlibc -I../cgame_common -o \"$env:TEMP\\\\t.asm\" ..\\\\cgame_common\\\\oe_game.c; \"exit=$LASTEXITCODE\"; Pop-Location)",
+      "PowerShell($r=\"C:\\\\BREW ID GAMES EXTRACTOR\\\\ORCS AND ELVES II BREW EXTRACTOR\\\\OrcsAndElvesII_Brew\"; Get-ChildItem -LiteralPath $r | Select Name,Mode; Get-ChildItem -LiteralPath $r -Directory | % { \"$\\($_.Name\\): \" + \\(Get-ChildItem -LiteralPath $_.FullName -Recurse -File\\).Count + \" files; ext: \" + \\(\\(Get-ChildItem -LiteralPath $_.FullName -Recurse -File | group Extension | % {\"$\\($_.Name\\)=$\\($_.Count\\)\"}\\) -join ','\\) })",
+      "PowerShell($r=\"C:\\\\BREW ID GAMES EXTRACTOR\\\\ORCS AND ELVES II BREW EXTRACTOR\\\\OrcsAndElvesII_Brew\"; $n=0; Get-ChildItem -LiteralPath $r -Directory | ? Name -ne 'SOUND' | % { Get-ChildItem -LiteralPath $_.FullName -Recurse -File | ? { $_.Extension -ne '.png' } | % { Rename-Item -LiteralPath $_.FullName -NewName \\($_.Name + '.png'\\); $n++ } }; \"renamed $n\"; Get-ChildItem -LiteralPath $r -Directory | % { \"$\\($_.Name\\): \" + \\(\\(Get-ChildItem -LiteralPath $_.FullName -Recurse -File | group Extension | % {\"$\\($_.Name\\)=$\\($_.Count\\)\"}\\) -join ','\\) })"
+    ]
+  }
+}

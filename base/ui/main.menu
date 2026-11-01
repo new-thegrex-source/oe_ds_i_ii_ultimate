@@ -1,0 +1,312 @@
+// The menus of oe.exe started without fs_game (vm_use_idtech3_ui 1): the user
+// interface module of the base folder (vm/ui.qvm or uix86_64.dll) reads this
+// file. It is written like Tremulous' menu files: menuDef / itemDef, scripts
+// (open, close, exec "command", setcvar, show, hide), cvarTest with
+// showCvar / hideCvar / enableCvar / disableCvar.
+//
+// The engine sets, before the menus open:
+//   ui_installed_oe, ui_installed_oe2, ui_installed_oeds   1 if that game's files are in its folder
+//   ui_gameError   why the game picked last could not start ("" if none); the
+//                  menu "gameerror" is then opened over "main"
+// "game <dir>" (oe, oe2, oeds) leaves the menus for that game.
+
+#include "ui/menudef.h"
+
+#define GOLD        1 0.82 0.35 1
+#define GOLD_DIM    0.62 0.48 0.22 1
+#define WHITE       1 1 1 1
+#define GREY        0.6 0.6 0.6 1
+#define BG          0.06 0.045 0.03 1
+#define PANEL       0.12 0.09 0.05 1
+
+#define X           170
+#define W           300
+#define Y           170
+#define H           40
+
+{
+  assetGlobalDef
+  {
+    focusColor 1 1 1 1
+    shadowColor 0 0 0 0.6
+  }
+
+  menuDef
+  {
+    name main
+    fullScreen MENU_TRUE
+    rect 0 0 640 480
+    visible MENU_TRUE
+    backcolor BG
+    focusColor 1 1 1 1
+    onESC { open quit_popmenu }
+
+    itemDef
+    {
+      name title
+      type ITEM_TYPE_TEXT
+      text "ORCS & ELVES"
+      rect 0 50 640 50
+      textalign ALIGN_CENTER
+      textscale 1.0
+      textstyle ITEM_TEXTSTYLE_SHADOWEDMORE
+      forecolor GOLD
+      visible MENU_TRUE
+      decoration
+    }
+
+    itemDef
+    {
+      name subtitle
+      type ITEM_TYPE_TEXT
+      text "Choose a game"
+      rect 0 105 640 20
+      textalign ALIGN_CENTER
+      textscale 0.4
+      forecolor GOLD_DIM
+      visible MENU_TRUE
+      decoration
+    }
+
+    itemDef
+    {
+      name rule
+      type ITEM_TYPE_NONE
+      style WINDOW_STYLE_FILLED
+      rect X 140 W 2
+      backcolor GOLD_DIM
+      visible MENU_TRUE
+      decoration
+    }
+
+    // ---- the games: dim and "not installed" while their files are missing
+
+    itemDef
+    {
+      name game_oe
+      type ITEM_TYPE_BUTTON
+      text "Orcs & Elves"
+      rect X Y W H
+      textalign ALIGN_CENTER
+      textscale 0.6
+      textstyle ITEM_TEXTSTYLE_SHADOWED
+      forecolor GOLD
+      visible MENU_TRUE
+      cvarTest "ui_installed_oe"
+      enableCvar { "1" }
+      action { exec "game oe" }
+    }
+    itemDef
+    {
+      name game_oe_missing
+      type ITEM_TYPE_TEXT
+      text "not installed: put orcsandelves.bar and .mod into oe"
+      rect X (Y+H-6) W 12
+      textalign ALIGN_CENTER
+      textscale 0.25
+      forecolor GREY
+      visible MENU_TRUE
+      decoration
+      cvarTest "ui_installed_oe"
+      hideCvar { "1" }
+    }
+
+    itemDef
+    {
+      name game_oe2
+      type ITEM_TYPE_BUTTON
+      text "Orcs & Elves II"
+      rect X (Y+(1*(H+10))) W H
+      textalign ALIGN_CENTER
+      textscale 0.6
+      textstyle ITEM_TEXTSTYLE_SHADOWED
+      forecolor GOLD
+      visible MENU_TRUE
+      cvarTest "ui_installed_oe2"
+      enableCvar { "1" }
+      action { exec "game oe2" }
+    }
+    itemDef
+    {
+      name game_oe2_missing
+      type ITEM_TYPE_TEXT
+      text "not installed: put orcsandelves2.bar and .mod into oe2"
+      rect X (Y+(1*(H+10))+H-6) W 12
+      textalign ALIGN_CENTER
+      textscale 0.25
+      forecolor GREY
+      visible MENU_TRUE
+      decoration
+      cvarTest "ui_installed_oe2"
+      hideCvar { "1" }
+    }
+
+    itemDef
+    {
+      name game_oeds
+      type ITEM_TYPE_BUTTON
+      text "Orcs & Elves DS"
+      rect X (Y+(2*(H+10))) W H
+      textalign ALIGN_CENTER
+      textscale 0.6
+      textstyle ITEM_TEXTSTYLE_SHADOWED
+      forecolor GOLD
+      visible MENU_TRUE
+      cvarTest "ui_installed_oeds"
+      enableCvar { "1" }
+      action { exec "game oeds" }
+    }
+    itemDef
+    {
+      name game_oeds_missing
+      type ITEM_TYPE_TEXT
+      text "not installed: put your cartridge dump, rom.nds, into oeds"
+      rect X (Y+(2*(H+10))+H-6) W 12
+      textalign ALIGN_CENTER
+      textscale 0.25
+      forecolor GREY
+      visible MENU_TRUE
+      decoration
+      cvarTest "ui_installed_oeds"
+      hideCvar { "1" }
+    }
+
+    itemDef
+    {
+      name rule2
+      type ITEM_TYPE_NONE
+      style WINDOW_STYLE_FILLED
+      rect X (Y+(3*(H+10))+4) W 2
+      backcolor GOLD_DIM
+      visible MENU_TRUE
+      decoration
+    }
+
+    itemDef
+    {
+      name quit
+      type ITEM_TYPE_BUTTON
+      text "Quit"
+      rect X (Y+(3*(H+10))+16) W 30
+      textalign ALIGN_CENTER
+      textscale 0.45
+      forecolor GOLD_DIM
+      visible MENU_TRUE
+      action { open quit_popmenu }
+    }
+
+    itemDef
+    {
+      name hint
+      type ITEM_TYPE_TEXT
+      text "Next time a game can start directly: oe.exe +set fs_game oe, oe2 or oeds"
+      rect 0 452 640 12
+      textalign ALIGN_CENTER
+      textscale 0.25
+      forecolor GREY
+      visible MENU_TRUE
+      decoration
+    }
+  }
+
+  // ---- why the game picked could not start (ui_gameError)
+
+  menuDef
+  {
+    name gameerror
+    rect 70 130 500 220
+    style WINDOW_STYLE_FILLED
+    backcolor PANEL
+    border WINDOW_BORDER_FULL
+    bordercolor GOLD_DIM
+    borderSize 2
+    visible MENU_TRUE
+    popup
+    focusColor 1 1 1 1
+    onESC { close gameerror }
+
+    itemDef
+    {
+      name message
+      type ITEM_TYPE_TEXT
+      cvar "ui_gameError"
+      rect 90 140 460 160
+      textalign ALIGN_LEFT
+      textalignx 4
+      textscale 0.32
+      forecolor WHITE
+      autowrapped
+      visible MENU_TRUE
+      decoration
+    }
+
+    itemDef
+    {
+      name ok
+      type ITEM_TYPE_BUTTON
+      text "OK"
+      rect 270 310 100 30
+      textalign ALIGN_CENTER
+      textscale 0.5
+      forecolor GOLD
+      visible MENU_TRUE
+      action { setcvar ui_gameError "" ; close gameerror }
+    }
+  }
+
+  // ---- quit?
+
+  menuDef
+  {
+    name quit_popmenu
+    rect 170 180 300 120
+    style WINDOW_STYLE_FILLED
+    backcolor PANEL
+    border WINDOW_BORDER_FULL
+    bordercolor GOLD_DIM
+    borderSize 2
+    visible MENU_TRUE
+    popup
+    focusColor 1 1 1 1
+    onESC { close quit_popmenu }
+
+    itemDef
+    {
+      name question
+      type ITEM_TYPE_TEXT
+      text "Quit?"
+      rect 170 195 300 30
+      textalign ALIGN_CENTER
+      textscale 0.5
+      forecolor GOLD
+      visible MENU_TRUE
+      decoration
+    }
+
+    itemDef
+    {
+      name yes
+      type ITEM_TYPE_BUTTON
+      text "Yes"
+      rect 200 250 100 30
+      textalign ALIGN_CENTER
+      textscale 0.5
+      forecolor WHITE
+      visible MENU_TRUE
+      action { exec "quit" }
+    }
+
+    itemDef
+    {
+      name no
+      type ITEM_TYPE_BUTTON
+      text "No"
+      rect 340 250 100 30
+      textalign ALIGN_CENTER
+      textscale 0.5
+      forecolor WHITE
+      visible MENU_TRUE
+      action { close quit_popmenu }
+    }
+  }
+}

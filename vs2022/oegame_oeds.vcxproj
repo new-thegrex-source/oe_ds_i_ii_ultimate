@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{EE9E4691-55A5-49D0-B051-846D50AD10E0}</ProjectGuid>
+    <RootNamespace>oegame_oeds</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="oe.props" />
+  </ImportGroup>
+  <PropertyGroup>
+    <OutDir>$(OeOutDir)oeds\</OutDir>
+    <TargetName>oegamex86_64</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(OeRoot)src\cgame_common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(OeRoot).;$(OeRoot)src\sys;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\cgame_common\oe_game.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\app.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\canvas.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\canvas_input.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\canvas_move.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\combat.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\combat_attack.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\core_gfx.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\core_particle.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\core_sound.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\core_stream.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\core_text.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\entity.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\entity_ai.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\game_entities.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\game_monsters.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\game_movers.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\game_save.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\game_sprites.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\game_world.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\hud.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\hud_draw.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\menu_build.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\menu_items.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\menu_select.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\menu_system.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\ds_spells.c" />
+    <ClCompile Include="..\src\cgame_oeds\ds_data.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\oe_main.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\player.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\player_draw.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\player_items.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\player_save.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\render.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\render_load.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\render_span.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\freemove.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\render_hw.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\render_sprite.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\script.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\script_exec.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\ui_dialog.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\ui_screens.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_oeds\ui_text.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_common\brew_shim.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_common\oe_export.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_common\oe_options.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_common\oe_hw.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_common\moddata.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+    <ClCompile Include="..\src\cgame_common\oe_syscalls.c"><AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions></ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\cgame_oeds\core_local.h" />
+    <ClInclude Include="..\src\cgame_oeds\game.h" />
+    <ClInclude Include="..\src\cgame_oeds\protos.h" />
+    <ClInclude Include="..\src\cgame_oeds\render_local.h" />
+    <ClInclude Include="..\src\cgame_oeds\types.h" />
+    <ClInclude Include="..\src\cgame_oeds\ui_local.h" />
+    <ClInclude Include="..\src\cgame_common\brew_shim.h" />
+    <ClInclude Include="..\src\cgame_common\moddata.h" />
+    <ClInclude Include="..\src\cgame_common\oe_public.h" />
+    <ClInclude Include="..\src\cgame_common\oe_vm.h" />
+    <ClInclude Include="..\src\cgame_common\platform.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
