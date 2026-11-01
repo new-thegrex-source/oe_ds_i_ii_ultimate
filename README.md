@@ -5,3 +5,5 @@ How it works?:
 Engine side uses code from id tech 3, renderer is adjusted for work with BREW OE1/2 maps. DS maps working under q3 renderer with some fixes
 
 OE1/2/DS logic compiles to .qvm or .dll. Currently server side totally destroyed, engine uses only cgame, but mb i restore it for COOP mods or something like that
+
+Very big thank to George Gorzhiyev for his repos of reverse BREW vers of both Orcs & Elves! My client was impossible, if it doesn't exist
