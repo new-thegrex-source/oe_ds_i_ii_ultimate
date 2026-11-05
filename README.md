@@ -7,3 +7,9 @@ Engine side uses code from id tech 3, renderer is adjusted for work with BREW OE
 OE1/2/DS logic compiles to .qvm or .dll. Currently server side totally destroyed, engine uses only cgame, but mb i restore it for COOP mods or something like that
 
 Very big thank to George Gorzhiyev for his repos of reverse BREW vers of both Orcs & Elves! My client was impossible, if it doesn't exist
+
+TODO:
+-Full hardware rendering, including BREW OE games
+-COOP and MP
+-Additional renders (DX9,10,11,12)
+-Mb port Erick194 ports of D1/2 and WolfRPG to my client
